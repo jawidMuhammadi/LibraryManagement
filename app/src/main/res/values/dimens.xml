@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="image_width_height">90dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_recylerview">12dp</dimen>
+    <dimen name="margin_24dp">24dp</dimen>
+    <dimen name="line_corner">4dp</dimen>
+    <dimen name="margin_6dp">6dp</dimen>
+    <dimen name="book_details_appbar_hieht">278dp</dimen>
+    <dimen name="student_details_appbar_height">192dp</dimen>
+</resources>

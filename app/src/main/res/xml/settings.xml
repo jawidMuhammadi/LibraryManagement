@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <CheckBoxPreference
+        android:icon="@drawable/ic_access_time_black_24dp"
+        android:key="@string/key_chek_box_show_notification"
+        android:summary="@string/send_notification"
+        android:title="@string/notification" />
+    <ListPreference
+        android:defaultValue="@string/pref_default_value"
+        android:entries="@array/theme_entries"
+        android:entryValues="@array/them_entry_values"
+        android:key="@string/key_pref_app_theme"
+        android:title="@string/app_theme" />
+
+    <Preference
+        android:key="@string/key_pref_logout"
+        app:title="@string/log_out" />
+</PreferenceScreen>

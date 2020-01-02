@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="theme_entries">
+        <item>Default</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="them_entry_values">
+        <item>@string/pref_default_value</item>
+        <item>@string/pref_light_value</item>
+        <item>@string/pref_dark_value</item>
+    </string-array>
+
+</resources>

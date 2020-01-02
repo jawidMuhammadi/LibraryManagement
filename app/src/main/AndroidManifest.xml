@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.library">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:name=".LibraryApplication"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:parentActivityName=".main.MainActivity"></activity>
+        <activity
+            android:name=".book_details.BookDetailsActivity"
+            android:parentActivityName=".main.MainActivity"
+            android:theme="@style/Theme.Library.NoActionBar" />
+        <activity
+            android:name=".student_details.StudentDetailsActivity"
+            android:theme="@style/Theme.Library.NoActionBar" />
+        <activity
+            android:name=".book_register.BookRegisterActivity"
+            android:parentActivityName=".main.MainActivity"
+            android:theme="@style/Theme.Library.NoActionBar" />
+        <activity
+            android:name=".student_register.StudentRegisterActivity"
+            android:parentActivityName=".main.MainActivity"
+            android:theme="@style/Theme.Library.NoActionBar" />
+        <activity android:name=".register.RegisterActivity" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:theme="@style/Theme.Library.FullScreen" />
+        <activity
+            android:name=".main.MainActivity"
+            android:theme="@style/Theme.Library.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".notification.NotificationReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name=".notification.NotificationActionReceiver"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+
+</manifest>

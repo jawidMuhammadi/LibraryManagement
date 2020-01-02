@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Library</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_password">Enter password</string>
+    <string name="mandatory">Mandatory *</string>
+    <string name="login">Login</string>
+    <string name="sing_up">Sing up</string>
+    <string name="wrong_password">Wrong password</string>
+    <string name="wrong_name">Wrong name</string>
+    <string name="sing_up_succes">sign up successfully</string>
+    <string name="log_out">Logout</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="students">Students</string>
+    <string name="books">Books</string>
+    <string name="register">Register</string>
+    <string name="register_book">Register book</string>
+    <string name="register_student">Register student</string>
+    <string name="select_date">Select date</string>
+    <string name="select_time">Select time</string>
+    <string name="enter_book_name">Enter book name </string>
+    <string name="enter_book_author">Enter book author</string>
+    <string name="select_borrower">Select borrower</string>
+    <string name="save">save</string>
+    <string name="enter_class_name">Enter class name</string>
+    <string name="borrowed_books">Borrowed books</string>
+    <string name="student_registered_succesfully">Student registered successfully</string>
+    <string name="channel_name">Return book channel</string>
+    <string name="snooze">Snooze</string>
+    <string name="big_picture_content_tile">Best book to study</string>
+    <string name="big_pic_summery">How to find friends and influence people.</string>
+    <string name="book_details">Book details</string>
+    <string name="book_detials"> There are important differences between plain text (created and edited by text editors) and rich text (such as that created by word processors or desktop publishing software).
+
+Plain text exclusively consists of character representation. Each character is represented by a fixed-length sequence of one, two, or four bytes, or as a variable-length sequence of one to four bytes, in accordance to specific character encoding conventions, such as ASCII, ISO/IEC 2022, UTF-8, or Unicode. These conventions define many printable characters, but also non-printing characters that control the flow of the text, such space, line break, and page break. Plain text contains no other information about the text itself, not even the character encoding convention employed. Plain text is stored in text files, although text files do not exclusively store plain text. In the early days of computers, plain text was displayed using a monospace font, such that horizontal alignment and columnar formatting were sometimes done using whitespace characters. For compatibility reasons, this tradition has not changed.
+
+Rich text, on the other hand, may contain metadata, character formatting data (e.g. typeface, size, weight and style), paragraph formatting data (e.g. indentation, alignment, letter and word distribution, and space between lines or other paragraphs), and page specification data (e.g. size, margin and reading direction). Rich text can be very complex. Rich text can be saved in binary format (e.g. DOC), text files adhering to a markup language (e.g. RTF or HTML), or in a hybrid form of both (e.g. Office Open XML).</string>
+    <string name="send_notification">Send Notification</string>
+    <string name="notification">Notification</string>
+    <string name="key_chek_box_show_notification">show_notification</string>
+    <string name="pref_default_value">default</string>
+    <string name="pref_light_value">light</string>
+    <string name="pref_dark_value">dark</string>
+    <string name="app_theme">App Theme</string>
+    <string name="key_pref_app_theme">app_theme</string>
+    <string name="key_pref_logout">key_logout</string>
+    <string name="setings">Settings</string>
+</resources>
