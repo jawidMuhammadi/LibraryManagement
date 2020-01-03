@@ -14,6 +14,7 @@ import com.example.library.adapter.OnStudentItemClickListener
 import com.example.library.adapter.StudentsListAdapter
 import com.example.library.data.StudentRepository
 import com.example.library.student_details.StudentDetailsActivity
+import com.example.library.utils.EventObserver
 import com.example.library.utils.STUDENT_ID
 import kotlinx.android.synthetic.main.fragment_student_list.view.*
 
@@ -48,13 +49,11 @@ class StudentListFragment : Fragment() {
             adapter.submitList(it)
         })
 
-        viewModel.onStudentItemClick.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                val intent = Intent(context, StudentDetailsActivity::class.java).apply {
-                    putExtra(STUDENT_ID, it)
-                }
-                startActivity(intent)
+        viewModel.onStudentItemClick.observe(this, EventObserver {
+            val intent = Intent(context, StudentDetailsActivity::class.java).apply {
+                putExtra(STUDENT_ID, it)
             }
+            startActivity(intent)
 
         })
 

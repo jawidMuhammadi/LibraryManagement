@@ -20,7 +20,10 @@ interface BookDao {
     fun getAllStudentsAndAllBorrowedBooks(): LiveData<List<StudentAndAllBooks>>
 
     @Query("SELECT * FROM book_table ORDER BY book_id desc limit 1")
-    fun getRecentBook(): LiveData<Book>
+    fun getRecentBook(): Book
+
+    @Query("SELECT * FROM book_table ORDER BY book_id desc limit 1")
+    fun getObserVerdRecentBook(): LiveData<Book>
 
     @Insert
     suspend fun insertBook(book: Book)

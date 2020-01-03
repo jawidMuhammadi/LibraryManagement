@@ -38,20 +38,9 @@ class BookRepository private constructor(
 
     suspend fun insertBook(book: Book) {
         bookDao.insertBook(book)
-        val recentBook = bookDao.getRecentBook()
-        withContext(Dispatchers.Main) {
-            recentBook.observeForever(object : Observer<Book> {
-                override fun onChanged(rBook: Book) {
-                    scheduleNotification(
-                        context,
-                        rBook.studentId,
-                        rBook.returnDate.timeInMillis
-                    )
-                    recentBook.removeObserver(this)
-                }
 
-            })
-        }
+        val recentBook = bookDao.getRecentBook()
+        scheduleNotification(context, recentBook.studentId, recentBook.returnDate.timeInMillis)
     }
 
     fun getStudentAndAllBooks(id: Long): LiveData<StudentAndAllBooks> {
