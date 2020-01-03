@@ -4,6 +4,9 @@ import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -12,6 +15,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.os.PersistableBundle
 import androidx.core.app.AlarmManagerCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -19,6 +23,7 @@ import androidx.core.content.ContextCompat
 import com.example.library.R
 import com.example.library.notification.NotificationReceiver
 import com.example.library.notification.NotificationActionReceiver
+import com.example.library.notification.NotificationService
 
 
 fun sendNotification(
@@ -139,5 +144,27 @@ private fun getPendingIntent(context: Context, studentId: Long): PendingIntent {
     return PendingIntent.getBroadcast(
         context, 0, intent, 0
     )
+}
+
+fun scheduleNotificationService(context: Context, packageName: String) {
+    val component = ComponentName(
+        packageName, NotificationService::class.java.name
+    )
+
+    val extra = PersistableBundle().apply {
+        putLong(STUDENT_ID, 10L)
+    }
+
+    val jobInfo = JobInfo.Builder(
+        JOB_ID,
+        component
+    ).apply {
+        setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+        setRequiresCharging(false)
+        setExtras(extra)
+    }
+
+    val jobScheduler = context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+    jobScheduler.schedule(jobInfo.build())
 }
 
