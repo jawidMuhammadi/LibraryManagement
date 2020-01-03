@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
 import com.example.library.settings.ThemType
-import com.example.library.utils.scheduleNotificationService
 
 class LibraryApplication : Application() {
     override fun onCreate() {
@@ -19,7 +18,7 @@ class LibraryApplication : Application() {
             ThemType.DARK.value -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
 
-        scheduleNotificationService(context = this, packageName = packageName)
+        //  scheduleNotificationService(context = this, packageName = packageName)
     }
 
 }

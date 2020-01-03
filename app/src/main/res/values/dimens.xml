@@ -10,4 +10,5 @@
     <dimen name="margin_6dp">6dp</dimen>
     <dimen name="book_details_appbar_hieht">278dp</dimen>
     <dimen name="student_details_appbar_height">192dp</dimen>
+    <dimen name="navigation_view_height">170dp</dimen>
 </resources>

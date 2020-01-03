@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_settings"
+        android:icon="@drawable/ic_date_range_black_24dp"
+        android:title="@string/setings" />
+    <item
+        android:id="@+id/menu_register"
+        android:icon="@drawable/ic_access_time_black_24dp"
+        android:title="@string/register" />
+    <group
+        android:id="@+id/menu_group_socical"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/menu_book_details"
+            android:icon="@drawable/ic_done_black_24dp"
+            android:title="@string/book_details" />
+    </group>
+</menu>

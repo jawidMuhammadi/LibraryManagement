@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.preference.PreferenceManager
 import com.example.library.R
 import com.example.library.adapter.BOOKS_FRAGMENT
@@ -14,10 +15,11 @@ import com.example.library.login.LoginActivity
 import com.example.library.login.LoginViewModel.Companion.USER_LOGGED_IN
 import com.example.library.register.RegisterActivity
 import com.example.library.settings.SettingsActivity
+import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             tab.text = getTabTitle(position)
         }.attach()
 
+        nav_view.setNavigationItemSelectedListener(this)
 
         if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
                 USER_LOGGED_IN,
@@ -59,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.menu_settings -> onSettingMenuClicked()
             R.id.menu_register -> onRegisterMenuClick()
-
+            else -> drawer_layout?.openDrawer(GravityCompat.START)
         }
         return true
     }
@@ -72,5 +75,16 @@ class MainActivity : AppCompatActivity() {
     private fun onSettingMenuClicked() {
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_register -> {
+                onRegisterMenuClick()
+                drawer_layout?.closeDrawers()
+                true
+            }
+            else -> false
+        }
     }
 }

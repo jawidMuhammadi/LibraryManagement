@@ -35,7 +35,7 @@
             android:theme="@style/Theme.Library.FullScreen" />
         <activity
             android:name=".main.MainActivity"
-            android:theme="@style/Theme.Library.NoActionBar">
+            android:theme="@style/Theme.Library.OverlapSystemBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
