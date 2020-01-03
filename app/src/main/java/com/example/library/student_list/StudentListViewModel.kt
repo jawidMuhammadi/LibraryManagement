@@ -1,16 +1,16 @@
 package com.example.library.student_list
 
-import android.util.EventLog
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.paging.PagedList
 import com.example.library.data.StudentAndAllBooks
 import com.example.library.data.StudentRepository
 import com.example.library.utils.Event
 
 class StudentListViewModel(val studentRepository: StudentRepository) : ViewModel() {
 
-    val studentAndBookList: LiveData<List<StudentAndAllBooks>> =
+    val studentAndBookList: LiveData<PagedList<StudentAndAllBooks>> =
         studentRepository.getAllStudentsAndAllBooks()
 
     private var _onStudentItemClick = MutableLiveData<Event<Long>>()

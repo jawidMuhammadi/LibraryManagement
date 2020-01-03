@@ -1,6 +1,7 @@
 package com.example.library.data
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteQuery
 
@@ -8,7 +9,7 @@ import androidx.sqlite.db.SupportSQLiteQuery
 interface BookDao {
 
     @Query("SELECT * FROM BOOK_TABLE")
-    fun getAllBooks(): LiveData<List<Book>>
+    fun getAllBooks(): DataSource.Factory<Int, Book>
 
     @RawQuery(observedEntities = [Book::class])
     fun getBooksByRaw(rawQuery: SupportSQLiteQuery): LiveData<List<Book>>
@@ -17,7 +18,7 @@ interface BookDao {
     fun getStudentAndAllBooks(studentId: Long): LiveData<StudentAndAllBooks>
 
     @Query("select * from student_table where id in(SELECT DISTINCT(student_id) from book_table)")
-    fun getAllStudentsAndAllBorrowedBooks(): LiveData<List<StudentAndAllBooks>>
+    fun getAllStudentsAndAllBorrowedBooks(): DataSource.Factory<Int, StudentAndAllBooks>
 
     @Query("SELECT * FROM book_table ORDER BY book_id desc limit 1")
     fun getRecentBook(): Book

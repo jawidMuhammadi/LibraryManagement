@@ -3,15 +3,15 @@ package com.example.library.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.library.R
 import com.example.library.data.Book
 import kotlinx.android.synthetic.main.book_list_item.view.*
 
 class BookListAdapter constructor(private val onBookItemClickListener: OnBookItemClickListener) :
-    ListAdapter<Book, BookViewHolder>(Callback()) {
+    PagedListAdapter<Book, BookViewHolder>(Callback()) {
     companion object {
         class Callback : DiffUtil.ItemCallback<Book>() {
             override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean {
@@ -37,15 +37,17 @@ class BookListAdapter constructor(private val onBookItemClickListener: OnBookIte
 class BookViewHolder private constructor(private val view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(
-        book: Book,
+        book: Book?,
         onBookItemClickListener: OnBookItemClickListener
     ) {
-        with(view) {
-            textViewBookName.text = book.bookName
-            textViewBookCount.text = "5"
-            textViewAuthorName.text = book.author
-            setOnClickListener {
-                onBookItemClickListener.onClick(bookId = book.bookId)
+        book?.let { book ->
+            with(view) {
+                textViewBookName.text = book.bookName
+                textViewBookCount.text = "5"
+                textViewAuthorName.text = book.author
+                setOnClickListener {
+                    onBookItemClickListener.onClick(bookId = book.bookId)
+                }
             }
         }
     }

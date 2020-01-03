@@ -2,6 +2,10 @@ package com.example.library.data
 
 import android.app.Application
 import androidx.lifecycle.LiveData
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
+import com.example.library.utils.PAGE_SIZE
+
 
 class StudentRepository private constructor(
     private val studentDao: StudentDao,
@@ -23,8 +27,14 @@ class StudentRepository private constructor(
         }
     }
 
-    fun getAllStudents(): LiveData<List<Student>> {
-        return studentDao.getAllStudents()
+    fun getAllStudents(): LiveData<PagedList<Student>> {
+
+        val source = studentDao.getAllStudents()
+
+        return LivePagedListBuilder<Int, Student>(
+            source, PAGE_SIZE
+        ).build()
+
     }
 
     suspend fun insertStudent(student: Student) {
@@ -36,11 +46,15 @@ class StudentRepository private constructor(
     }
 
     fun getStudentAndAllBooksById(id: Long): LiveData<StudentAndAllBooks> {
+
         return bookDao.getStudentAndAllBooks(id)
     }
 
-    fun getAllStudentsAndAllBooks(): LiveData<List<StudentAndAllBooks>> {
-        return bookDao.getAllStudentsAndAllBorrowedBooks()
+    fun getAllStudentsAndAllBooks(): LiveData<PagedList<StudentAndAllBooks>> {
+        val source = bookDao.getAllStudentsAndAllBorrowedBooks()
+        return LivePagedListBuilder<Int, StudentAndAllBooks>(
+            source, PAGE_SIZE
+        ).build()
     }
 
 

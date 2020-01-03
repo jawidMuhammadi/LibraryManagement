@@ -1,6 +1,7 @@
 package com.example.library.data
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.*
 
 
@@ -8,7 +9,7 @@ import androidx.room.*
 interface StudentDao {
 
     @Query("SELECT * FROM student_table")
-    fun getAllStudents(): LiveData<List<Student>>
+    fun getAllStudents(): DataSource.Factory<Int, Student>
 
     @Query("SELECT * FROM student_table where id =:id")
     fun getStudentById(id: Long): LiveData<Student>

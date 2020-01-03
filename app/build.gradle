@@ -30,6 +30,7 @@ dependencies {
     def lifecycle_version = "2.1.0"
     def room_version = "2.2.3"
     def work_version = "2.2.0"
+    def paging_version = "2.1.1"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -52,6 +53,8 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
 
     implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    implementation "androidx.paging:paging-runtime:$paging_version"
 
 
 }

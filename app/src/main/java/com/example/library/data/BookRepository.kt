@@ -2,10 +2,10 @@ package com.example.library.data
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
+import com.example.library.utils.PAGE_SIZE
 import com.example.library.utils.scheduleNotification
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class BookRepository private constructor(
     private val bookDao: BookDao,
@@ -28,12 +28,18 @@ class BookRepository private constructor(
         }
     }
 
-    fun getAllStudents(): LiveData<List<Student>> {
-        return studentDao.getAllStudents()
+    fun getAllStudents(): LiveData<PagedList<Student>> {
+        val source = studentDao.getAllStudents()
+        return LivePagedListBuilder<Int, Student>(
+            source, PAGE_SIZE
+        ).build()
     }
 
-    fun getAllBooks(): LiveData<List<Book>> {
-        return bookDao.getAllBooks()
+    fun getAllBooks(): LiveData<PagedList<Book>> {
+        val source = bookDao.getAllBooks()
+        return LivePagedListBuilder<Int, Book>(
+            source, PAGE_SIZE
+        ).build()
     }
 
     suspend fun insertBook(book: Book) {
