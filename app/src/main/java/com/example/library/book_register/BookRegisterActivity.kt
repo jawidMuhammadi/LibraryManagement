@@ -131,5 +131,6 @@ class BookRegisterActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
         viewModel.setStudentId(p2)
+        tv_selected_borrower_name.text = sp_students_name.selectedItem.toString()
     }
 }

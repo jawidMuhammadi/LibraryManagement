@@ -3,10 +3,10 @@ package com.example.library.book_list
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.library.R
@@ -33,6 +33,10 @@ class BookListFragment : Fragment() {
         val factory =
             BookListViewModelFactory(BookRepository.getInstance(requireActivity().application))
         viewModel = ViewModelProviders.of(this, factory).get(BookListViewModel::class.java)
+
+//        val decoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+//        context?.getDrawable(R.drawable.divider_line)?.let { decoration.setDrawable(it) }
+//        view.recyclerViewBookList.addItemDecoration(decoration)
 
         val adapter = BookListAdapter(onBookItemClickListener = OnBookItemClickListener {
             viewModel.onListItemClick(it)

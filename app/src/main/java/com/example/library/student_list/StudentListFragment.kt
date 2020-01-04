@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.library.R
 import com.example.library.adapter.OnStudentItemClickListener
 import com.example.library.adapter.StudentsListAdapter
@@ -32,6 +33,9 @@ class StudentListFragment : Fragment() {
         val factory =
             StudentListViewModelFactory(StudentRepository.getInstance(requireActivity().application))
         viewModel = ViewModelProviders.of(this, factory).get(StudentListViewModel::class.java)
+
+        val decoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        view.student_list.addItemDecoration(decoration)
 
         val adapter = StudentsListAdapter(OnStudentItemClickListener {
             viewModel.onStudentItemClick(it)
